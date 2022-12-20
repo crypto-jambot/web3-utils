@@ -1,0 +1,40 @@
+{
+  "name": "@crypto-jambot/web3-utils",
+  "version": "1.0.0-0",
+  "description": "Library for easier use of web3js, with TS support.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "start": "node .",
+    "build": "tsc -p tsconfig.build.json && npm run moveMissingFiles",
+    "dev": "nodemon src/server.ts",
+    "moveMissingFiles": "cp src/*.d.ts dist",
+    "patch": "npm version patch --git-tag-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crypto-jambot/web3-utils.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crypto-jambot/web3-utils/issues"
+  },
+  "homepage": "https://github.com/crypto-jambot/web3-utils#readme",
+  "dependencies": {
+    "@crypto-jambot/bigquery-utils": "^1.0.0",
+    "@crypto-jambot/proxy-utils": "^1.0.0",
+    "web3": "^1.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
