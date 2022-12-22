@@ -11,18 +11,21 @@ let web3: Web3;
 export class Web3Utils {
     constructor(apiKey: string) {
         key = apiKey;
-        this.getAccessToken().then();
+    }
+
+    async #init(): Promise<void> {
+        await this.getAccessToken();
         initializeWeb3();
     }
 
     async getAccessToken(): Promise<string> {
         const { token } = await getToken(key);
         accessToken = token;
-        initializeWeb3();
         return accessToken;
     }
 
-    getClient(): Web3 {
+    async getClient(): Promise<Web3> {
+        await this.#init();
         return web3;
     }
 
@@ -30,9 +33,8 @@ export class Web3Utils {
         return Web3.utils;
     }
 
-    getEthereum(): Eth {
-        this.getAccessToken().then();
-        initializeWeb3();
+    async getEthereum(): Promise<Eth> {
+        await this.#init();
         return web3.eth;
     }
 }
