@@ -43,8 +43,8 @@ function initializeWeb3(): void {
     const options = {
         headers: [
             {
-                name: "access-token",
-                value: accessToken,
+                name: "Authorization",
+                value: `Bearer ${accessToken}`,
             },
         ],
     };
