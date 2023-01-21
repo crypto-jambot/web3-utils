@@ -1,1 +1,1 @@
-export const JAM_ETH_NODE_HTTPS: string = "https://rabbit.dev";
+export const JAM_ETH_NODE_HTTPS: string = "https://rabbit.dev/http";
