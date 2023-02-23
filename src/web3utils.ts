@@ -55,5 +55,14 @@ function initializeWeb3(): void {
         ],
     };
     web3 = new Web3(new HttpProvider(JAM_ETH_NODE_HTTPS, options));
-    wsWeb3 = new Web3(new WebsocketProvider(JAM_ETH_NODE_WS, options));
+    wsWeb3 = new Web3(
+        new WebsocketProvider(JAM_ETH_NODE_WS, {
+            ...options,
+            clientConfig: {
+                keepalive: true,
+                keepaliveInterval: 60000,
+            },
+            reconnect: { auto: true, maxAttempts: 10, onTimeout: true },
+        })
+    );
 }
