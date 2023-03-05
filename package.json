@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/crypto-jambot/web3-utils#readme",
   "dependencies": {
-    "@crypto-jambot/bigquery-utils": "^1.0.0",
     "@crypto-jambot/proxy-utils": "^1.0.0",
     "web3": "^1.8.1"
   },
